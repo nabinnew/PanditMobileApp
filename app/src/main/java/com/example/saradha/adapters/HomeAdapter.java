@@ -3,6 +3,7 @@ package com.example.saradha.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -45,6 +46,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         PanditModel m = list.get(position);
+        Log.i("TAG", "desc == "+m.description);
 
         // Name & Price
         holder.binding.panditName.setText(m.name);
@@ -77,8 +79,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         // Services (tags)
         if (m.services != null) {
             if (m.services.size() > 0) holder.binding.tag1.setText(m.services.get(0));
-            if (m.services.size() > 1) holder.binding.tag2.setText(m.services.get(1));
-            if (m.services.size() > 2) holder.binding.tag3.setText(m.services.get(2));
+
         }
     }
 

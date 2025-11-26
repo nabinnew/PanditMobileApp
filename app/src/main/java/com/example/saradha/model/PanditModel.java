@@ -1,8 +1,12 @@
 package com.example.saradha.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class PanditModel {
+
+    @SerializedName("_id")
 
     public String userid;
     public String name;

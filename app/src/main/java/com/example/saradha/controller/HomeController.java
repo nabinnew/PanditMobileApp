@@ -6,6 +6,7 @@ import android.util.Log;
 import com.example.saradha.model.PanditModel;
 import com.example.saradha.model.PanditResponse;
 import com.example.saradha.utils.App;
+import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -25,9 +26,13 @@ public class HomeController {
         App.api.getPandits().enqueue(new Callback<PanditResponse>() {
             @Override
             public void onResponse(Call<PanditResponse> call, Response<PanditResponse> response) {
-                Log.d("TAG", "onResponse: " + response.body());
+                Log.d("TAG", "onResponse:IS  " + response);
+
 
                 if (response.isSuccessful() && response.body() != null) {
+                    Gson gson = new Gson();
+                    String json = gson.toJson(response.body());
+                    Log.i("TAG",json);
                     callback.onSuccess(response.body().pandits);
                 } else {
                     callback.onError("Invalid Response");

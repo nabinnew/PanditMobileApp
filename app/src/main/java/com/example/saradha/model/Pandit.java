@@ -1,6 +1,9 @@
 package com.example.saradha.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Pandit {
+
         private String userid;
         private String name;
         private String location;
