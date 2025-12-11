@@ -73,51 +73,17 @@
                 android:textStyle="bold" />
 
             <HorizontalScrollView
+                android:id="@+id/serviceScroll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:scrollbars="none">
 
                 <LinearLayout
+                    android:id="@+id/chipContainer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="Sraddha"
-                        app:chipBackgroundColor="@color/chip_color"
-                        app:chipStrokeColor="@color/black"
-                    app:chipStrokeWidth="2dp"
-                    app:chipCornerRadius="8dp" />
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="Bihe"
-                        app:chipBackgroundColor="@color/chip_color"
-                        app:chipStrokeColor="@color/black"
-                        app:chipStrokeWidth="2dp"
-                        app:chipCornerRadius="8dp" />
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="Rudri"
-                        app:chipBackgroundColor="@color/chip_color"
-                        app:chipStrokeColor="@color/black"
-                        app:chipStrokeWidth="2dp"
-                        app:chipCornerRadius="8dp" />
-
-
-
-
-                </LinearLayout>
+                    android:orientation="horizontal"/>
             </HorizontalScrollView>
 
             <!-- Featured Pandits Section -->

@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.example.saradha.R;
 import com.example.saradha.controller.ProfileController;
 import com.example.saradha.databinding.ActivityPanditProfileBinding;
@@ -31,6 +32,20 @@ public class PanditProfileActivity extends AppCompatActivity {
         String name = prefs.getString("userName", "");
 
         binding.txtname.setText("pandit."+name);
+
+        String imageUrl = prefs.getString("profile_image", null);
+
+        if (imageUrl != null && !imageUrl.isEmpty()) {
+            Glide.with(this)
+                    .load(imageUrl) // URL from SharedPreferences
+                    .placeholder(R.drawable.pandit) // optional placeholder
+                    .error(R.drawable.pandit)       // optional error image
+                    .circleCrop()                             // optional circular crop
+                    .into(binding.profilePicture);            // your ImageView
+        } else {
+            // If no image saved, show default
+            binding.profilePicture.setImageResource(R.drawable.pandit);
+        }
 
 
         binding.Logout.setOnClickListener(view -> {

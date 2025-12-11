@@ -17,6 +17,7 @@ import com.example.saradha.model.PaymentRequest;
 import com.example.saradha.model.ResponseBody;
 import com.example.saradha.utils.App;
 import com.example.saradha.utils.Constants;
+import com.example.saradha.utils.NotificationUtils;
 import com.f1soft.esewapaymentsdk.EsewaConfiguration;
 import com.f1soft.esewapaymentsdk.EsewaPayment;
 import com.f1soft.esewapaymentsdk.ui.screens.EsewaPaymentActivity;
@@ -123,6 +124,9 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
             Log.i(TAG, "Proof of Payment " + message);
             savePayment(message);
              Toast.makeText(this, "SUCCESSFUL PAYMENT", Toast.LENGTH_SHORT).show();
+
+
+
         } else if (resultCode == Activity.RESULT_CANCELED) {
 
             Toast.makeText(this, "Canceled By User", Toast.LENGTH_SHORT).show();
@@ -223,6 +227,8 @@ public void home(){
 
                             Log.i("TAG", "Payment saved successfully!");
                             Toast.makeText(getApplicationContext(), "Payment saved successfully", Toast.LENGTH_SHORT).show();
+                            NotificationUtils.showNotification(getApplicationContext(), "Booking Successful", "Your booking for pandit is confirmed!");
+
                             home();
                         } else {
                             Log.e("TAG", "Failed to save payment: " + response.code());

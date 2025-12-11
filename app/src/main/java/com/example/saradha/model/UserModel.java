@@ -7,6 +7,7 @@ public class UserModel {
     private String email;
     private String address;
     private String phone;
+
     private String role;
     private String createdAt;
     private String updatedAt;
