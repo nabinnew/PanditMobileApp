@@ -3,6 +3,7 @@ package com.example.saradha.view;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -61,5 +62,69 @@ public class PanditProfileActivity extends AppCompatActivity {
 
         binding.viewprofile.setOnClickListener(view -> controller.viewProfile());
 
+        binding.termsCard.setOnClickListener(view -> navigateToTerms());
+
+        // Privacy Policy Card
+        binding.privacyCard.setOnClickListener(view -> navigateToPrivacy());
+
+
+        // Rate App Card
+        binding.rateCard.setOnClickListener(view -> navigateToRate());
+
+        // About Us Card
+        binding.aboutCard.setOnClickListener(view -> navigateToAbout());
+    }
+
+    private void navigateToTerms() {
+        try {
+            Intent intent = new Intent(this, TermsAndConditionActivity.class);
+            startActivity(intent);
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        } catch (Exception e) {
+            Toast.makeText(this, "Unable to open Terms & Conditions", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+    }
+
+    private void navigateToPrivacy() {
+        try {
+            Intent intent = new Intent(this, Activity_privacyActivity.class);
+            startActivity(intent);
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        } catch (Exception e) {
+            Toast.makeText(this, "Unable to open Privacy Policy", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+    }
+
+    private void navigateToRate() {
+        try {
+            Intent intent = new Intent(this, activity_rate.class);
+            startActivity(intent);
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        } catch (Exception e) {
+            Toast.makeText(this, "Unable to open Rate App", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+    }
+
+    private void navigateToAbout() {
+        try {
+            Intent intent = new Intent(this, activity_about.class);
+            startActivity(intent);
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        } catch (Exception e) {
+            Toast.makeText(this, "Unable to open About Us", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+    }
+
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Clean up binding
+        binding = null;
     }
 }
